@@ -1,3 +1,4 @@
+@model List<Post> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    Post Lists
+   @foreach(var post in Model) {
+        @post.PostTitle
+   }
 </body>
 </html>
