@@ -152,5 +152,5 @@
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.pdb
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.genruntimeconfig.cache
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/ref/BlogProject.dll
-/Users/yasinpeker/Desktop/BlogProject/BlogProject/bin/Debug/net8.0/MySqlConnector.dll
-/Users/yasinpeker/Desktop/BlogProject/BlogProject/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.RazorAssemblyInfo.cache
+/Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.RazorAssemblyInfo.cs

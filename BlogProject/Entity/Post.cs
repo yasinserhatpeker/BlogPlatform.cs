@@ -12,6 +12,8 @@ public class Post
 
     public string? PostContet { get; set; }
 
+    public string? PostImage { get; set; }
+
     public DateTime PostPublishedOn { get; set; }
 
     public bool isActive { get; set; }

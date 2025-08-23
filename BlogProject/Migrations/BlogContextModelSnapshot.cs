@@ -3,7 +3,6 @@ using System;
 using BlogProject.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -16,31 +15,25 @@ namespace BlogProject.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.8");
 
             modelBuilder.Entity("BlogProject.Entity.Comment", b =>
                 {
                     b.Property<int>("CommentId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("CommentId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CommentPublishedOn")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("CommentText")
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("PostId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("CommentId");
 
@@ -55,24 +48,25 @@ namespace BlogProject.Migrations
                 {
                     b.Property<int>("PostId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("PostId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("PostContet")
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostImage")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("PostPublishedOn")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PostTitle")
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("isActive")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("PostId");
 
@@ -85,12 +79,10 @@ namespace BlogProject.Migrations
                 {
                     b.Property<int>("TagId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("TagId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("TagText")
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("TagId");
 
@@ -101,12 +93,13 @@ namespace BlogProject.Migrations
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("UserId"));
+                    b.Property<string>("UserImage")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("longtext");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
 
@@ -116,10 +109,10 @@ namespace BlogProject.Migrations
             modelBuilder.Entity("PostTag", b =>
                 {
                     b.Property<int>("PostsPostId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TagsTagId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("PostsPostId", "TagsTagId");
 
