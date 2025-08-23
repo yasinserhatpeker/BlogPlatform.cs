@@ -154,3 +154,4 @@
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/ref/BlogProject.dll
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.RazorAssemblyInfo.cache
 /Users/yasinpeker/Desktop/BlogProject/BlogProject/obj/Debug/net8.0/BlogProject.RazorAssemblyInfo.cs
+/Users/yasinpeker/Desktop/BlogProject/BlogProject/bin/Debug/net8.0/BlogProject.staticwebassets.runtime.json

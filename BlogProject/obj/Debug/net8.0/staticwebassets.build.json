@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "Yyxqc9/GgTn/i82OKal6YLoO5BaqHaMYr2FYnAjcMvM=",
+  "Hash": "/apa9QOZp/yIX5KSnmjGVIgRVHtRLNvqzTB4dTG5p2Y=",
   "Source": "BlogProject",
   "BasePath": "_content/BlogProject",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BlogProject/wwwroot",
+      "Source": "BlogProject",
+      "ContentRoot": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/",
+      "BasePath": "_content/BlogProject",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }
