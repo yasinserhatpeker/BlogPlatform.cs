@@ -59,7 +59,7 @@ public static class SeedData
                           PostContet = "Jannik Sinner wins his first Wimbledon! ",
                           PostPublishedOn = DateTime.Now.AddDays(-20),
                           isActive = true,
-                           PostImage="jannikSinner.jpeg",
+                           PostImage="jannikSinner.jpg",
                           Tags = context.Tags.Take(2).ToList(),
                           UserId = 2
 

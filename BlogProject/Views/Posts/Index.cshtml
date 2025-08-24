@@ -1,5 +1,38 @@
 @model List<Post> 
 
-   @foreach(var post in Model) {
-       <p>@post.PostTitle</p>
-   }
+    <div class="row">
+        <div class="col-lg-8">
+          <div class="bg-white p-4">
+            <h1 class="h4 mb-4">Popular Topics</h1>
+            @foreach(var post in Model) {
+            <div class="card bg-transparent border-0 mb-3">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="~/img/@post.PostImage" class="img-fluid rounded" alt="">
+                    </div>
+                    <div class="col-8">
+                        <h5><a href="#" class="btn-link fw-bold">@post.PostTitle</a></h5>
+                        <p>@post.PostContet</p>
+                        <a href="#" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">@post.PostTitle</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            }
+            <nav>
+                <ul class="pagination">
+                    <li class="badge-item" >
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                     <li class="badge-item" >
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                     <li class="badge-item" >
+                        <a href="#" class="page-link">3</a>
+                    </li>
+                </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
