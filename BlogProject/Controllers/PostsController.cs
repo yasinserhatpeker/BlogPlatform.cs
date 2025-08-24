@@ -6,14 +6,17 @@ namespace BlogProject.Controllers;
 
 public class PostsController : Controller
 {
-    private IPostRepository _repository;
+    private IPostRepository _postRepository;
+    private ITagRepository _tagRepository;
 
-    public PostsController(IPostRepository repository)
+    public PostsController(IPostRepository postRepository, ITagRepository tagRepository)
     {
-        _repository = repository;
+        _postRepository = postRepository;
+        _tagRepository = tagRepository;
+        ;
     }
     public IActionResult Index()
     {
-        return View(_repository.Posts.ToList());
+        return View(_postRepository.Posts.ToList());
     }
 }
