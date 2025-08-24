@@ -18,6 +18,7 @@ builder.Services.AddDbContext<BlogContext>(options =>
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 
 var app = builder.Build();
+app.UseStaticFiles();   
 SeedData.FillTestData(app);
 
 

@@ -48,6 +48,7 @@ public static class SeedData
                         PostContet = "Lebron James is starting his 23rd season!",
                         PostPublishedOn = DateTime.Now.AddDays(-10),
                         isActive = true,
+                        PostImage="lebronJames.jpg",
                         Tags = context.Tags.Take(3).ToList(),
                         UserId = 1
 
@@ -58,6 +59,7 @@ public static class SeedData
                           PostContet = "Jannik Sinner wins his first Wimbledon! ",
                           PostPublishedOn = DateTime.Now.AddDays(-20),
                           isActive = true,
+                           PostImage="jannikSinner.jpeg",
                           Tags = context.Tags.Take(2).ToList(),
                           UserId = 2
 
@@ -68,6 +70,7 @@ public static class SeedData
                           PostContet = "Putin holds a meeting with Trump in Kremlin Palace",
                           PostPublishedOn = DateTime.Now.AddDays(-30),
                           isActive = true,
+                          PostImage="vladimirPutin.jpg",
                           Tags = context.Tags.Take(4).ToList(),
                           UserId = 3
 
