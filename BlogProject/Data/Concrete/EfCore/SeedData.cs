@@ -48,7 +48,7 @@ public static class SeedData
                         PostContet = "Lebron James is starting his 23rd season!",
                         PostPublishedOn = DateTime.Now.AddDays(-10),
                         isActive = true,
-                        PostImage="lebronJames.jpg",
+                        PostImage="lebron2.jpg",
                         Tags = context.Tags.Take(3).ToList(),
                         UserId = 1
 

@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets/img/jannikSinner.jpg"
     },
     {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/lebron2.jpg",
+      "PackagePath": "staticwebassets/img/lebron2.jpg"
+    },
+    {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/lebronJames.jpg",
       "PackagePath": "staticwebassets/img/lebronJames.jpg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/lebronjames2.avif",
+      "PackagePath": "staticwebassets/img/lebronjames2.avif"
     },
     {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/vladimirPutin.jpg",
