@@ -17,11 +17,16 @@ public class PostsController : Controller
 
 
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index(string tag)
     {
+        var posts = _postRepository.Posts;
+        if (!string.IsNullOrEmpty(tag))
+        {
+            posts = posts.Where(x=> x.Tags.Any(t=>t.TagUrl==tag));  
+        }
         return View(new PostViewModel
         {
-            Posts = _postRepository.Posts.ToList(),
+            Posts = await posts.ToListAsync()
 
         });
     }
