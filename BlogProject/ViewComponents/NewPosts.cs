@@ -1,5 +1,6 @@
 using BlogProject.Data.Abstract;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogProject.ViewComponents
 {
@@ -12,9 +13,12 @@ namespace BlogProject.ViewComponents
             _postRepository = postRepository;
         }
 
-        public IViewComponentResult Invoke()
+        public async Task<IViewComponentResult>  InvokeAsync()
         {
-            return View(_postRepository.Posts.ToList());
+            return View( await _postRepository.
+            Posts.
+            OrderByDescending(p=>p.PostPublishedOn).
+            ToListAsync());
         }
     }
 }
