@@ -1,5 +1,7 @@
 using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete.EfCore;
+using BlogProject.Entity;
+using BlogProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogProject.Controllers;
@@ -17,6 +19,10 @@ public class PostsController : Controller
     }
     public IActionResult Index()
     {
-        return View(_postRepository.Posts.ToList());
+        return View(new PostViewModel
+        {
+            Posts = _postRepository.Posts.ToList(),
+            Tags = _tagRepository.Tags.ToList(),
+        });
     }
 }
