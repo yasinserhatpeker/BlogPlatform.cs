@@ -8,6 +8,8 @@ public class Tag
 
     public string? TagText { get; set; }
 
+    public string? TagUrl { get; set; }
+
     public List<Post> Posts { get; set; } = new List<Post>();
     
     

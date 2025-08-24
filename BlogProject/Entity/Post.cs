@@ -10,6 +10,8 @@ public class Post
 
     public string? PostTitle { get; set; }
 
+    public string? PostUrl { get; set; }
+
     public string? PostContet { get; set; }
 
     public string? PostImage { get; set; }

@@ -18,9 +18,9 @@ public static class SeedData
             if (!context.Tags.Any())
             {
                 context.Tags.AddRange(
-                    new Entity.Tag { TagText = "Sports" },
-                    new Entity.Tag { TagText = "Politics" },
-                    new Entity.Tag { TagText = "News" }
+                    new Entity.Tag { TagText = "Sports",TagUrl="sports" },
+                    new Entity.Tag { TagText = "Politics" ,TagUrl="politics" },
+                    new Entity.Tag { TagText = "News", TagUrl="news" }
 
 
                 );
@@ -48,7 +48,8 @@ public static class SeedData
                         PostContet = "Lebron James is starting his 23rd season!",
                         PostPublishedOn = DateTime.Now.AddDays(-10),
                         isActive = true,
-                        PostImage="lebron2.jpg",
+                        PostUrl="lebron-james",
+                        PostImage ="lebron2.jpg",
                         Tags = context.Tags.Take(3).ToList(),
                         UserId = 1
 
@@ -59,18 +60,56 @@ public static class SeedData
                           PostContet = "Jannik Sinner wins his first Wimbledon! ",
                           PostPublishedOn = DateTime.Now.AddDays(-20),
                           isActive = true,
-                           PostImage="jannikSinner.jpg",
+                          PostUrl="jannik-sinner",
+                           PostImage ="jannikSinner.jpg",
                           Tags = context.Tags.Take(2).ToList(),
                           UserId = 2
 
                       },
                       new Post
                       {
-                          PostTitle = "Vladimir Putin",
-                          PostContet = "Putin holds a meeting with Trump in Kremlin Palace",
+                          PostTitle = "Galatasaray",
+                          PostContet = "Galatasaray are back-to-back champions!",
                           PostPublishedOn = DateTime.Now.AddDays(-30),
                           isActive = true,
-                          PostImage="vladimirPutin.jpg",
+                          PostUrl="galatasaray",
+                          PostImage ="gs2.jpg",
+                          Tags = context.Tags.Take(4).ToList(),
+                          UserId = 3
+
+                      },
+                        new Post
+                      {
+                          PostTitle = "Liverpool",
+                          PostContet = "Liverpool crownded as a Premier League Champions!",
+                          PostPublishedOn = DateTime.Now.AddDays(-40),
+                          isActive = true,
+                          PostUrl="liverpool",
+                          PostImage ="liverpool.jpg",
+                          Tags = context.Tags.Take(4).ToList(),
+                          UserId = 1
+
+                      },
+                        new Post
+                      {
+                          PostTitle = "Paris-Saint Germain",
+                          PostContet = "PSG smashes Inter 5-0 in the Champions League final",
+                          PostPublishedOn = DateTime.Now.AddDays(-50),
+                          isActive = true,
+                          PostUrl="psg-inter",
+                          PostImage ="psg2.jpeg",
+                          Tags = context.Tags.Take(4).ToList(),
+                          UserId = 2
+
+                      },
+                        new Post
+                      {
+                          PostTitle = "NBA Finals",
+                          PostContet = "OKC wins the Finals agains Pacers 4-3",
+                          PostPublishedOn = DateTime.Now.AddDays(-60),
+                          isActive = true,
+                          PostUrl="okc-pacers",
+                          PostImage ="okc2.jpeg",
                           Tags = context.Tags.Take(4).ToList(),
                           UserId = 3
 

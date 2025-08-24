@@ -5,12 +5,32 @@
       "PackagePath": "staticwebassets/css/style.css"
     },
     {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/gs.jpeg",
+      "PackagePath": "staticwebassets/img/gs.jpeg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/gs2.jpg",
+      "PackagePath": "staticwebassets/img/gs2.jpg"
+    },
+    {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/jannikSinner.jpg",
       "PackagePath": "staticwebassets/img/jannikSinner.jpg"
     },
     {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/lebron2.jpg",
       "PackagePath": "staticwebassets/img/lebron2.jpg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/liverpool.jpg",
+      "PackagePath": "staticwebassets/img/liverpool.jpg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/okc2.jpeg",
+      "PackagePath": "staticwebassets/img/okc2.jpeg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/psg2.jpeg",
+      "PackagePath": "staticwebassets/img/psg2.jpeg"
     },
     {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/vladimirPutin.jpg",
