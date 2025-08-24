@@ -22,7 +22,7 @@ public class PostsController : Controller
         return View(new PostViewModel
         {
             Posts = _postRepository.Posts.ToList(),
-            Tags = _tagRepository.Tags.ToList(),
+            Tags = _tagRepository.Tags.ToList()
         });
     }
 }
