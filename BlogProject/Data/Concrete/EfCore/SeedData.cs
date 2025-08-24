@@ -18,9 +18,11 @@ public static class SeedData
             if (!context.Tags.Any())
             {
                 context.Tags.AddRange(
-                    new Entity.Tag { TagText = "Sports",TagUrl="sports" },
-                    new Entity.Tag { TagText = "Politics" ,TagUrl="politics" },
-                    new Entity.Tag { TagText = "News", TagUrl="news" }
+                    new Entity.Tag { TagText = "Football",TagUrl="football" },
+                    new Entity.Tag { TagText = "Basketball" ,TagUrl="basketball" },
+                    new Entity.Tag { TagText = "Tennis", TagUrl="tennis" },
+                    new Entity.Tag { TagText = "Volleyball", TagUrl="volleyball" },
+                    new Entity.Tag { TagText = "Formula 1", TagUrl="formula-1" }
 
 
                 );
