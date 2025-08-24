@@ -2,6 +2,8 @@ using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete;
 using BlogProject.Data.Concrete.EfCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.PatternContexts;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +25,17 @@ var app = builder.Build();
 app.UseStaticFiles();   
 SeedData.FillTestData(app);
 
+app.MapControllerRoute(
+  name:"post_details",
+  pattern:"posts/{url}",
+  defaults: new { controller = "Posts", action="Details"}
+);
 
-app.MapDefaultControllerRoute();
+
+
+app.MapControllerRoute(
+   name:"default",
+   pattern:"{controller=Posts}/{action=Index}/{id?}"
+);
 
 app.Run();
