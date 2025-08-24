@@ -18,11 +18,11 @@ public static class SeedData
             if (!context.Tags.Any())
             {
                 context.Tags.AddRange(
-                    new Entity.Tag { TagText = "Football",TagUrl="football" },
-                    new Entity.Tag { TagText = "Basketball" ,TagUrl="basketball" },
-                    new Entity.Tag { TagText = "Tennis", TagUrl="tennis" },
-                    new Entity.Tag { TagText = "Volleyball", TagUrl="volleyball" },
-                    new Entity.Tag { TagText = "Formula 1", TagUrl="formula-1" }
+                    new Entity.Tag { TagText = "Football",TagUrl="football", TagColor=TagColors.primary},
+                    new Entity.Tag { TagText = "Basketball" ,TagUrl="basketball",TagColor=TagColors.secondary },
+                    new Entity.Tag { TagText = "Tennis", TagUrl="tennis",TagColor=TagColors.danger},
+                    new Entity.Tag { TagText = "Volleyball", TagUrl="volleyball",TagColor=TagColors.info },
+                    new Entity.Tag { TagText = "Formula 1", TagUrl="formula-1",TagColor=TagColors.succes }
 
 
                 );
@@ -52,7 +52,7 @@ public static class SeedData
                         isActive = true,
                         PostUrl="lebron-james",
                         PostImage ="lebron2.jpg",
-                        Tags = context.Tags.Take(3).ToList(),
+                        Tags = context.Tags.Take(1).ToList(),
                         UserId = 1
 
                     },

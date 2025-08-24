@@ -18,6 +18,7 @@ namespace BlogProject.ViewComponents
             return View( await _postRepository.
             Posts.
             OrderByDescending(p=>p.PostPublishedOn).
+            Take(5).
             ToListAsync());
         }
     }
