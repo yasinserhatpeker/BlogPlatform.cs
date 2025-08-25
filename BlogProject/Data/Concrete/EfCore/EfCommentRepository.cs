@@ -16,7 +16,7 @@ public class EfCommentRepository : ICommentRepository
 
     
 
-    public void CreatePost(Comment comment)
+    public void CreateComment(Comment comment)
     {
         _context.Comments.Add(comment);
         _context.SaveChanges();

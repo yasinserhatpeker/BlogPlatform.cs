@@ -11,9 +11,12 @@ public class PostsController : Controller
 {
     private IPostRepository _postRepository;
 
-    public PostsController(IPostRepository postRepository)
+    private ICommentRepository _commentRepository;
+
+    public PostsController(IPostRepository postRepository, ICommentRepository commentRepository)
     {
         _postRepository = postRepository;
+        _commentRepository = commentRepository;
 
 
     }
@@ -40,8 +43,19 @@ public class PostsController : Controller
         PostUrl == url));
     }
 
-    public IActionResult AddComment(int id, string userName, string commentText)
+    public IActionResult AddComment(int PostId, string UserName, string CommentText, string Url)
     {
-        return View();
-    }
-}
+        var entity = new Comment
+        {
+            CommentText = CommentText,
+            CommentPublishedOn = DateTime.Now,
+            PostId = PostId,
+            User = new User { UserName = UserName, UserImage = "people1.jpg" },
+        };
+
+        _commentRepository.CreateComment(entity);
+
+       return RedirectToRoute("post_details", new {url = Url});
+
+  }
+  }

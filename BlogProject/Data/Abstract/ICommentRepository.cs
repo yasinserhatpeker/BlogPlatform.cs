@@ -6,5 +6,5 @@ public interface ICommentRepository
 {
     IQueryable<Comment> Comments { get; }
      
-    void CreatePost(Comment comment); 
+    void CreateComment(Comment comment); 
 }
