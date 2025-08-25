@@ -22,7 +22,7 @@ public class PostsController : Controller
         var posts = _postRepository.Posts;
         if (!string.IsNullOrEmpty(tag))
         {
-            posts = posts.Where(x=> x.Tags.Any(t=>t.TagUrl==tag));  
+            posts = posts.Where(x => x.Tags.Any(t => t.TagUrl == tag));
         }
         return View(new PostViewModel
         {
@@ -30,13 +30,18 @@ public class PostsController : Controller
 
         });
     }
-    public async Task<IActionResult> Details(string  url)
+    public async Task<IActionResult> Details(string url)
     {
         return View(await _postRepository.Posts.
-        Include(x=> x.Tags).
-        Include(x=>x.Comments).
-        ThenInclude(x=>x.User).
+        Include(x => x.Tags).
+        Include(x => x.Comments).
+        ThenInclude(x => x.User).
         FirstOrDefaultAsync(p => p.
         PostUrl == url));
+    }
+
+    public IActionResult AddComment(int id, string userName, string commentText)
+    {
+        return View();
     }
 }
