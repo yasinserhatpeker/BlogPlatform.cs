@@ -32,7 +32,7 @@ public static class SeedData
               if (!context.Users.Any())
             {
                 context.Users.AddRange(
-                  new User {UserName="Yasin Peker" , UserImage="people.1jpg"},
+                  new User {UserName="Yasin Peker" , UserImage="people1.jpg"},
                   new User {UserName="Ahmet Ergenç", UserImage="people2.jpeg"},
                   new User {UserName="Tuana Korkmaz", UserImage="peoplew2.jpeg"},
                   new User {UserName="Yaren Yılmaz", UserImage="peoplew2.jpg"}

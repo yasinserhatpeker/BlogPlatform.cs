@@ -32,7 +32,11 @@ public class PostsController : Controller
     }
     public async Task<IActionResult> Details(string  url)
     {
-        return View(await _postRepository.Posts.Include(x=> x.Tags).FirstOrDefaultAsync(p => p.
+        return View(await _postRepository.Posts.
+        Include(x=> x.Tags).
+        Include(x=>x.Comments).
+        ThenInclude(x=>x.User).
+        FirstOrDefaultAsync(p => p.
         PostUrl == url));
     }
 }
