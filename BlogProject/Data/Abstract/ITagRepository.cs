@@ -6,5 +6,5 @@ public interface ITagRepository
 {
     IQueryable<Tag> Tags { get; }
      
-    void CreatePost(Tag tags); 
+    void CreatePost(Tag tag); 
 }
