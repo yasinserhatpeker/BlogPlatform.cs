@@ -33,20 +33,21 @@
                       </div>
                     }
                     <hr class="my-4">
+
                     <form action="/posts/AddComment" method="post">
                      <input type="hidden" name="PostId" id="@Model.PostId">
 
-                     <div class="mb-3">
+                     <div class="mb-3 mx-3">
                       <label for="UserName" class="form-label">User name</label>
                       <input type="text" name="UserName" id="UsernName" class="form-control">
                      </div>
 
-                     <div class="mb-3">
-                      <label for="CommentText" class="form-label">User name</label>
-                      <textarea type="text" name="CommentText" id="CommentText" class="form-control"></textarea>
+                     <div class="mb-3 mx-3">
+                      <label for="CommentText" class="form-label">Comment</label>
+                      <textarea type="text" name="CommentText" rows="4" id="CommentText" class="form-control"></textarea>
                      </div>
-                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-outline-info">Add comment</button>
+                     <div class="mb-3 mx-3">
+                        <button type="submit" class="btn btn-outline-danger">Add comment</button>
                      </div>
                     </form>
                 </div>
