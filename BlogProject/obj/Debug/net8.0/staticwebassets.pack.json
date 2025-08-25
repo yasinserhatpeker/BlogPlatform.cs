@@ -29,6 +29,22 @@
       "PackagePath": "staticwebassets/img/okc2.jpeg"
     },
     {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/people1.jpg",
+      "PackagePath": "staticwebassets/img/people1.jpg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/people2.jpeg",
+      "PackagePath": "staticwebassets/img/people2.jpeg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/peoplew2.jpeg",
+      "PackagePath": "staticwebassets/img/peoplew2.jpeg"
+    },
+    {
+      "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/peoplew2.jpg",
+      "PackagePath": "staticwebassets/img/peoplew2.jpg"
+    },
+    {
       "Id": "/Users/yasinpeker/Desktop/BlogProject/BlogProject/wwwroot/img/psg2.jpeg",
       "PackagePath": "staticwebassets/img/psg2.jpeg"
     },

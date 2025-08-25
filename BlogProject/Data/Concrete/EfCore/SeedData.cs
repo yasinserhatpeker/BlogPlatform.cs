@@ -32,10 +32,10 @@ public static class SeedData
               if (!context.Users.Any())
             {
                 context.Users.AddRange(
-                  new User {UserName="Yasin Peker"},
-                  new User {UserName="Helin Akyüz"},
-                  new User {UserName="Tuana Korkmaz"},
-                  new User {UserName="Yaren Yılmaz"}
+                  new User {UserName="Yasin Peker" , UserImage="people.1jpg"},
+                  new User {UserName="Ahmet Ergenç", UserImage="people2.jpeg"},
+                  new User {UserName="Tuana Korkmaz", UserImage="peoplew2.jpeg"},
+                  new User {UserName="Yaren Yılmaz", UserImage="peoplew2.jpg"}
 
                 );
                 context.SaveChanges();
@@ -50,10 +50,13 @@ public static class SeedData
                         PostContet = "Lebron James is starting his 23rd season!",
                         PostPublishedOn = DateTime.Now.AddDays(-10),
                         isActive = true,
-                        PostUrl="lebron-james",
-                        PostImage ="lebron2.jpg",
+                        PostUrl = "lebron-james",
+                        PostImage = "lebron2.jpg",
                         Tags = context.Tags.Take(1).ToList(),
-                        UserId = 1
+                        UserId = 1,
+                        Comments=new List<Comment> {
+                        new Comment { CommentText = "He is the GOAT!", CommentPublishedOn=DateTime.Now,UserId=1},
+                        new Comment { CommentText = "Yeah he is great but Jordan is better btw", CommentPublishedOn= DateTime.Now, UserId=2}}
 
                     },
                       new Post
