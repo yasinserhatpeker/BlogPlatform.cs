@@ -32,10 +32,10 @@ public static class SeedData
               if (!context.Users.Any())
             {
                 context.Users.AddRange(
-                  new User {UserName="Yasin Peker" , UserImage="people1.jpg"},
-                  new User {UserName="Ahmet Ergenç", UserImage="people2.jpeg"},
-                  new User {UserName="Tuana Korkmaz", UserImage="peoplew2.jpeg"},
-                  new User {UserName="Yaren Yılmaz", UserImage="peoplew2.jpg"}
+                  new User {UserName="yasinpeker" , UserImage="people1.jpg", Name ="Yasin Peker", Email="yasininfo@gmail.com", Password="1234"},
+                  new User {UserName="ahmetergenc", UserImage="people2.jpeg", Name ="Ahmet Ergenç", Email="ahmetinfo@gmail.com", Password="1234"},
+                  new User {UserName="tuanakormaz", UserImage="peoplew2.jpeg", Name ="Tuana Korkmaz", Email="tuanainfo@gmail.com", Password="1234"},
+                  new User {UserName="yarenyilmaz", UserImage="peoplew2.jpg", Name ="Yaren Yılmaz", Email="yareninfo@gmail.com", Password="1234"}
 
                 );
                 context.SaveChanges();
