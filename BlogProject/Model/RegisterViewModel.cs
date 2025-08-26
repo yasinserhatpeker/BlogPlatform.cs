@@ -14,6 +14,11 @@ namespace BlogProject.Models
         public string? Password { get; set; }
 
         [Required]
+        [Display(Name = "Password")]
+        [Compare(nameof(Password), ErrorMessage = "Passwords must be same")]
+        public string? ConfirmPassword { get; set; }
+
+        [Required]
         [Display(Name = "User Name")]
         public string? UserName { get; set; }
        
