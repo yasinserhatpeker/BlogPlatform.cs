@@ -5,7 +5,10 @@ using BlogProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlogProject.Controllers;
+namespace BlogProject.Controllers
+{ 
+    
+
 
 public class PostsController : Controller
 {
@@ -59,3 +62,4 @@ public class PostsController : Controller
         return RedirectToRoute("post_details", new { url = Url });
         }
   }
+   }
