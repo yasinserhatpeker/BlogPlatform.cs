@@ -20,6 +20,7 @@
                     <h4>There are @Model.Comments.Count() comments here</h4>
                 </div>
                 <div class="card-body">
+                   
                     @foreach(var comment in Model.Comments) {
                       <div class="d-flex my-4">
                         <img src="/img/@comment.User.UserImage" alt="" class="avatar rounded-circle float-start me-3">
@@ -32,10 +33,11 @@
                         </div>
                       </div>
                     }
+                   
                     <hr class="my-4">
 
                     <form action="/posts/AddComment" method="post">
-                     <input type="hidden" name="PostId" id="PostId" value="@Model.PostId">
+                     <input type="hidden" name="PostId" id="@Model.PostId" value="@Model.PostId">
                      <input type="hidden" name="Url" id="@Model.PostUrl" value="@Model.PostUrl">
 
                      <div class="mb-3 mx-3">
@@ -48,7 +50,7 @@
                      <textarea name="CommentText" rows="4" id="CommentText" class="form-control"></textarea>
                       </div>
                      <div class="mb-3 mx-3">
-                        <button type="submit" id="btnCommentUpdate" class="btn btn-outline-danger">Add comment</button>
+                        <button type="submit"class="btn btn-outline-danger">Add comment</button>
                      </div>
                     </form>
                 </div>
@@ -61,31 +63,3 @@
             
     </div>
 </div>
-
-@section Scripts {
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-       $(document).ready(function() {
-        $("#btnCommentUpdate").click(function(){
-             $.ajax({
-                type:'POST',
-                url: '@Url.Action("AddComment")',
-                dataType:'json',
-                data: {
-                    PostId:$('#PostId').val(),
-                    UserName:$('#UserName').val(),
-                    CommentText:$('#CommentText').val(),
-
-                },
-                success: function(comment) {
-                    console.log(comment)
-                }
-
-             });
-             return false;
-        });
-       });
-
-       
-    </script>
-}

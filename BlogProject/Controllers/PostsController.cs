@@ -43,8 +43,8 @@ public class PostsController : Controller
         PostUrl == url));
     }
 
-    [HttpPost]
-    public JsonResult AddComment(int PostId, string UserName, string CommentText, string Url)
+
+    public IActionResult AddComment(int PostId, string UserName, string CommentText, string Url)
     {
         var entity = new Comment
         {
@@ -56,13 +56,6 @@ public class PostsController : Controller
 
         _commentRepository.CreateComment(entity);
 
-        return Json(new
-        {
-            UserName,
-            CommentText,
-            entity.CommentPublishedOn,
-            entity.User.UserImage
-        });
-
-    }
+        return RedirectToRoute("post_details", new { url = Url });
+        }
   }
