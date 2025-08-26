@@ -22,7 +22,18 @@ namespace BlogProject.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            if (User.Identity!.IsAuthenticated)
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
+               return View();
+        }
+
+          public async Task<IActionResult> Logout()
+        {   
+             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
 
         [HttpPost]
