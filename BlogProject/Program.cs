@@ -1,6 +1,7 @@
 using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete;
 using BlogProject.Data.Concrete.EfCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.PatternContexts;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
@@ -21,9 +22,16 @@ builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 builder.Services.AddScoped<ITagRepository, EfTagRepository>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
 var app = builder.Build();
-app.UseStaticFiles();   
+app.UseStaticFiles();
+
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+
 SeedData.FillTestData(app);
 
 app.MapControllerRoute(
