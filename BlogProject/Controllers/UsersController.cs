@@ -17,7 +17,7 @@ namespace BlogProject.Controllers
         private IUserRepository _userRepository;
         public UsersController(IUserRepository userRepository)
         {
-           _userRepository=userRepository;
+            _userRepository = userRepository;
         }
 
         public IActionResult Login()
@@ -27,12 +27,12 @@ namespace BlogProject.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-               return View();
+            return View();
         }
 
-          public async Task<IActionResult> Logout()
-        {   
-             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
 
@@ -69,16 +69,23 @@ namespace BlogProject.Controllers
                         authProperties);
 
                     return RedirectToAction("Index", "Posts");
-                    
+
                 }
                 else
                 {
                     ModelState.AddModelError("", "Email or password is incorrect.");
                 }
-                
+
             }
-             return View(model);
+            return View(model);
         }
+
+        public IActionResult Register()
+        {
+            return View();
+       }
     }
+    
+    
 
 }
