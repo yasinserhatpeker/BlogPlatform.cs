@@ -1,0 +1,10 @@
+using BlogProject.Entity;
+
+namespace BlogProject.Data.Abstract;
+
+public interface IUserRepository
+{
+    IQueryable<User> Users { get; }
+     
+    void CreatePost(User user); 
+}
