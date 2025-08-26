@@ -5,17 +5,16 @@
      <h1 class="h4">Login</h1>
      <form action="Login" method="post">
       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-      <div class="mb-3">
+       <div class="mb-3">
         <label asp-for="Email" class="form-label">Email</label>
         <input asp-for="Email" class="form-control">
-        <div asp-validation-for="Email" class="text-danger"></div>
+        <span asp-validation-for="Email" class="text-danger"></span>
       </div>
 
         <div class="mb-3">
         <label asp-for="Password" class="form-label">Password</label>
         <input asp-for="Password" class="form-control">
-        <div asp-validation-for="Password" class="text-danger"></div>
+        <span asp-validation-for="Password" class="text-danger"></span>
       </div>
       <button type="submit" class="btn btn-outline-danger">Login</button>
      </form>

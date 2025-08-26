@@ -14,7 +14,7 @@ public class EfUserRepository : IUserRepository
     }
     public IQueryable<User> Users => _context.Users;
 
-    public void CreatePost(User user)
+    public void CreateUser(User user)
     {
         _context.Users.Add(user);
         _context.SaveChanges();

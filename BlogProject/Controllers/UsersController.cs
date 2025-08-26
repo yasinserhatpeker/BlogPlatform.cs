@@ -7,6 +7,7 @@ using BlogProject.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogProject.Controllers
@@ -36,24 +37,37 @@ namespace BlogProject.Controllers
             return RedirectToAction("Login");
         }
 
-         public IActionResult Register()
+        public IActionResult Register()
         {
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("login");
+                var user = await _userRepository.Users.FirstOrDefaultAsync(x => x.UserName == model.UserName || x.Email == model.Email);
+                if (user == null)
+                {
+                    _userRepository.CreateUser(new Entity.User
+                    {
+                        UserName = model.UserName,
+                        Name = model.Name,
+                        Email = model.Email,
+                        Password=model.Password,
+                        UserImage = "peoplew2.jpeg"
+                    });
+                    return RedirectToAction("login");
+                }
+               else
+               {
+                ModelState.AddModelError("", "Username or Email are used");
+               }
             }
-            else
-            {
                 return View(model);
         }
-      }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -74,6 +88,7 @@ namespace BlogProject.Controllers
                     {
                         userClaims.Add(new Claim(ClaimTypes.Role, "admin"));
                     }
+
                     var claimsIdentity = new ClaimsIdentity(userClaims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                     var authProperties = new AuthenticationProperties
@@ -89,20 +104,20 @@ namespace BlogProject.Controllers
 
                     return RedirectToAction("Index", "Posts");
 
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Email or password is incorrect.");
-                }
+                     }
+                   else
+                    {
+                    ModelState.AddModelError("", "Email or password are incorrect.");
+                    }
 
             }
-            return View(model);
+              return View(model);
         }
 
-       
-      
+
+
     }
-    
-    
+
+
 
 }

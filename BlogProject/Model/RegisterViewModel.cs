@@ -11,11 +11,14 @@ namespace BlogProject.Models
         public string? Email { get; set; }
         [Required]
         [Display(Name = "Password")]
+        [DataType(DataType.Password)]
         public string? Password { get; set; }
 
         [Required]
         [Display(Name = "Password")]
-        [Compare(nameof(Password), ErrorMessage = "Passwords must be same")]
+        [DataType(DataType.Password)]
+        
+        [Compare(nameof(Password), ErrorMessage = "Passwords are must be same")]
         public string? ConfirmPassword { get; set; }
 
         [Required]
