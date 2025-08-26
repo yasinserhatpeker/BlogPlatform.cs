@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-8">
         <div class="bg-white p-4">
-            <h1 class="h4 mb-4">@Model.PostTitle</h1>
+            <h1 class="h4 mb-4 text-decoration-none">@Model.PostTitle</h1>
             <div class="tags">
             <div>
                 @foreach(var tag in @Model.Tags) {
@@ -12,7 +12,7 @@
             </div>
            </div>
             <img src="~/img/@Model.PostImage" class="img-fluid rounded" alt="">
-            <div>@Model.PostContet</div>
+            <div>@Model.PostExp</div>
         </div>
         <div class="bg-white mt-3">
             <div class="card-border-0">

@@ -14,6 +14,8 @@ public class Post
 
     public string? PostContet { get; set; }
 
+     public string? PostExp { get; set; }
+
     public string? PostImage { get; set; }
 
     public DateTime PostPublishedOn { get; set; }
