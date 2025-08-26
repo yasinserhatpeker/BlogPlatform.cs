@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete.EfCore;
 using BlogProject.Entity;
@@ -68,12 +69,25 @@ namespace BlogProject.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create()
+        public  IActionResult Create(PostCreateViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                _postRepository.CreatePost(new Post
+                {
+                    PostTitle = model.PostTitle,
+                    PostContet = model.PostContet,
+                    PostUrl = model.PostUrl,
+                    UserId = int.Parse(userId ?? ""),
+                    PostImage = "liverpool.jpg",
+                    isActive = false
+
+                });
+                return RedirectToAction("Index");
+
             }
+            return View(model);
             
         }
   }
