@@ -43,6 +43,7 @@ namespace BlogProject.Controllers
         {
             return View(await _postRepository.Posts.
             Include(x => x.Tags).
+            Include(x=>x.User).
             Include(x => x.Comments).
             ThenInclude(x => x.User).
             FirstOrDefaultAsync(p => p.
