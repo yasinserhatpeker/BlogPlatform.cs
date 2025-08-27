@@ -78,6 +78,7 @@ namespace BlogProject.Controllers
                 {
                     PostTitle = model.PostTitle,
                     PostContet = model.PostContet,
+                    PostExp=model.PostExp,
                     PostUrl = model.PostUrl,
                     UserId = int.Parse(userId ?? ""),
                     PostImage = "liverpool.jpg",

@@ -1,0 +1,36 @@
+@model PostCreateViewModel
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="h4">Create Post</h1>
+        <form action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+        <label asp-for="PostTitle" class="form-label">Post Title</label>
+        <input asp-for="PostTitle" class="form-control">
+        <span asp-validation-for="PostTitle" class="text-danger"></span>
+        </div>
+
+          <div class="mb-3">
+        <label asp-for="PostContet" class="form-label">Post Content</label>
+        <input asp-for="PostContet" class="form-control">
+        <span asp-validation-for="PostContet" class="text-danger"></span>
+        </div>
+
+          <div class="mb-3">
+        <label asp-for="PostExp" class="form-label">Post Explanation</label>
+        <textarea asp-for="PostExp" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="PostExp" class="text-danger"></span>
+        </div>
+
+          <div class="mb-3">
+        <label asp-for="PostUrl" class="form-label">Post Url</label>
+        <input asp-for="PostUrl" class="form-control">
+        <span asp-validation-for="PostUrl" class="text-danger"></span>
+        </div>
+
+       <button type="submit" class="btn btn-outline-danger">Create</button>
+        </form>
+    </div>
+</div>

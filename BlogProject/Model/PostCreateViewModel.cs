@@ -6,7 +6,7 @@ namespace BlogProject.Models
     public class PostCreateViewModel
     {
         [Required]
-        [EmailAddress]
+        
         [Display(Name = "Title")]
         public string? PostTitle { get; set; }
 
