@@ -23,8 +23,10 @@ namespace BlogProject.Models
         [Required]
         [Display(Name = "Post Explanation")]
         public string? PostExp { get; set; }
-        
+
         public bool isActive { get; set; }
+
+        public List<Tag> Tags { get; set; } = new();
         
         
 

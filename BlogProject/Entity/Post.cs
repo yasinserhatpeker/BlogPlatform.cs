@@ -14,7 +14,7 @@ public class Post
 
     public string? PostContet { get; set; }
 
-     public string? PostExp { get; set; }
+    public string? PostExp { get; set; }
 
     public string? PostImage { get; set; }
 
@@ -27,8 +27,10 @@ public class Post
     public User User { get; set; } = null!;
 
     public List<Tag> Tags { get; set; } = new List<Tag>();
-
     public List<Comment> Comments { get; set; } = new List<Comment>();
+
+     
+    
 
     
 

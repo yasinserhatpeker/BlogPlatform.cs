@@ -18,10 +18,14 @@ namespace BlogProject.Controllers
 
         private ICommentRepository _commentRepository;
 
-        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository)
+        private ITagRepository _tagRepository;
+
+        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository, ITagRepository tagRepository)
         {
             _postRepository = postRepository;
             _commentRepository = commentRepository;
+            _tagRepository = tagRepository;
+
 
 
         }
@@ -117,11 +121,12 @@ namespace BlogProject.Controllers
             {
                 return NotFound("Error");
             }
-            var post = _postRepository.Posts.FirstOrDefault(x => x.PostId == id);
+            var post = _postRepository.Posts.Include(x=>x.Tags).FirstOrDefault(x => x.PostId == id);
             if (post == null)
             {
                 return NotFound("Error");
             }
+            ViewBag.Tags = _tagRepository.Tags;
 
             return View(new PostCreateViewModel
             {
@@ -131,6 +136,7 @@ namespace BlogProject.Controllers
                 PostUrl = post.PostUrl,
                 PostTitle = post.PostTitle,
                 isActive = post.isActive,
+                Tags=post.Tags
 
             });
         }
