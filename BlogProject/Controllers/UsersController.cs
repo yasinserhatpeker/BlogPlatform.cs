@@ -56,17 +56,17 @@ namespace BlogProject.Controllers
                         UserName = model.UserName,
                         Name = model.Name,
                         Email = model.Email,
-                        Password=model.Password,
+                        Password = model.Password,
                         UserImage = "peoplew2.jpeg"
                     });
                     return RedirectToAction("login");
                 }
-               else
-               {
-                ModelState.AddModelError("", "Username or Email are used");
-               }
+                else
+                {
+                    ModelState.AddModelError("", "Username or Email are used");
+                }
             }
-                return View(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -104,19 +104,38 @@ namespace BlogProject.Controllers
 
                     return RedirectToAction("Index", "Posts");
 
-                     }
-                   else
-                    {
+                }
+                else
+                {
                     ModelState.AddModelError("", "Email or password are incorrect.");
-                    }
+                }
 
             }
-              return View(model);
+            return View(model);
         }
 
 
+        public IActionResult Profile(string userName)
+        {
+            if (string.IsNullOrEmpty(userName))
+            {
+                return NotFound();
+            }
+            var user = _userRepository.Users.
+            Include(x => x.Posts).
+            Include(x => x.Comments).
+            ThenInclude(x => x.Post).
+            FirstOrDefault();
 
-    }
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+   }           
+     }
+    
+    
 
 
 
