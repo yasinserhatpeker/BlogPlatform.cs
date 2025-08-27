@@ -3,6 +3,7 @@ using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete.EfCore;
 using BlogProject.Entity;
 using BlogProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -63,13 +64,14 @@ namespace BlogProject.Controllers
 
             return RedirectToRoute("post_details", new { url = Url });
         }
-
+    [Authorize]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public  IActionResult Create(PostCreateViewModel model)
+        [Authorize]
+        public IActionResult Create(PostCreateViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -78,7 +80,7 @@ namespace BlogProject.Controllers
                 {
                     PostTitle = model.PostTitle,
                     PostContet = model.PostContet,
-                    PostExp=model.PostExp,
+                    PostExp = model.PostExp,
                     PostUrl = model.PostUrl,
                     UserId = int.Parse(userId ?? ""),
                     PostImage = "liverpool.jpg",
@@ -89,7 +91,15 @@ namespace BlogProject.Controllers
 
             }
             return View(model);
+
+        }
+        [Authorize
+        ]public  async Task<IActionResult> List()
+        {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var role = User.FindFirstValue(ClaimTypes.NameIdentifier);
             
+            return View();
         }
   }
    }
