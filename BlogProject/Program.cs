@@ -50,7 +50,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
   name:"user_profile",
   pattern:"profile/{username}",
-  defaults: new { controller = "User", action = "Profile"}
+  defaults: new { controller = "Users", action = "Profile"}
 );
 
 
