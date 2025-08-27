@@ -96,10 +96,16 @@ namespace BlogProject.Controllers
         [Authorize
         ]public  async Task<IActionResult> List()
         {
-            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var role = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            
-            return View();
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "");
+            var role = User.FindFirstValue(ClaimTypes.Role);
+
+            var posts = _postRepository.Posts;
+            if (string.IsNullOrEmpty(role))
+            {
+                posts = posts.Where(x => x.UserId == userId);
+            }
+           
+            return View(await posts.ToListAsync());
         }
   }
    }
