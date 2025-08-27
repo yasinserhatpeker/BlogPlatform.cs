@@ -64,7 +64,7 @@ namespace BlogProject.Controllers
 
             return RedirectToRoute("post_details", new { url = Url });
         }
-    [Authorize]
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -94,7 +94,8 @@ namespace BlogProject.Controllers
 
         }
         [Authorize
-        ]public  async Task<IActionResult> List()
+        ]
+        public async Task<IActionResult> List()
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "");
             var role = User.FindFirstValue(ClaimTypes.Role);
@@ -104,8 +105,33 @@ namespace BlogProject.Controllers
             {
                 posts = posts.Where(x => x.UserId == userId);
             }
-           
+
             return View(await posts.ToListAsync());
+        }
+
+        [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound("Error");
+            }
+            var post = _postRepository.Posts.FirstOrDefault(x => x.PostId == id);
+            if (post == null)
+            {
+                return NotFound("Error");
+            }
+
+            return View(new PostCreateViewModel
+            {
+                PostId = post.PostId,
+                PostContet = post.PostContet,
+                PostExp = post.PostExp,
+                PostUrl = post.PostUrl,
+                PostTitle = post.PostTitle,
+                isActive = post.isActive,
+
+            });
         }
   }
    }
