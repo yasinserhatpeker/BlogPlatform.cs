@@ -4,7 +4,7 @@
     <div class="col-12">
         <h1 class="h4">Edit Post</h1>
         <form action="Edit" method="post">
-        <input type="hidden" asp-for="@PostId">
+        <input type="hidden" asp-for="PostId">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="mb-3">
@@ -30,6 +30,13 @@
         <input asp-for="PostUrl" class="form-control">
         <span asp-validation-for="PostUrl" class="text-danger"></span>
         </div>
+
+        @if(User.FindFirstValue(ClaimTypes.Role) == "admin") {
+            <div class="form-check mb-3">
+            <input asp-for="isActive" class="form-check-input">
+            <label asp-for="isActive" class="form-check-label"></label>
+            </div>
+        }
 
        <button type="submit" class="btn btn-outline-danger">Create</button>
         </form>

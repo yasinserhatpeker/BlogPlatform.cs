@@ -28,7 +28,7 @@ namespace BlogProject.Controllers
         public async Task<IActionResult> Index(string tag)
         {
             var claims = User.Claims;
-            var posts = _postRepository.Posts;
+            var posts = _postRepository.Posts.Where(i=>i.isActive);
             if (!string.IsNullOrEmpty(tag))
             {
                 posts = posts.Where(x => x.Tags.Any(t => t.TagUrl == tag));
@@ -132,6 +132,34 @@ namespace BlogProject.Controllers
                 isActive = post.isActive,
 
             });
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Edit(PostCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var entityToUpdate = new Post
+                {
+                    PostId = model.PostId,
+                    PostTitle = model.PostTitle,
+                    PostExp = model.PostExp,
+                    PostUrl = model.PostUrl,
+                    PostContet = model.PostContet,
+                    
+                };
+
+                if (User.FindFirstValue(ClaimTypes.Role) == "admin")
+                {
+                    entityToUpdate.isActive = model.isActive;
+                }
+                _postRepository.EditPost(entityToUpdate);
+
+                return RedirectToAction("List", "Posts");
+
+            }
+            return View(model);
         }
   }
    }
