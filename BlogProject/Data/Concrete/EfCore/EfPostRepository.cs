@@ -1,6 +1,7 @@
 using BlogProject.Data.Abstract;
 using BlogProject.Data.Concrete.EfCore;
 using BlogProject.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlogProject.Data.Concrete;
 
@@ -36,4 +37,23 @@ public class EfPostRepository : IPostRepository
         }
     }
 
+    public void EditPost(Post post, int[] tagIds)
+    {
+
+         var entity = _context.Posts.Include(i=>i.Tags).FirstOrDefault(p => p.PostId == post.PostId);
+        if (entity != null)
+        {
+            entity.PostTitle = post.PostTitle;
+            entity.PostContet = post.PostContet;
+            entity.PostExp = post.PostExp;
+            entity.PostUrl = post.PostUrl;
+            entity.isActive = post.isActive;
+
+            entity.Tags = _context.Tags.Where(tag => tagIds.Contains(tag.TagId)).ToList();
+
+            _context.SaveChanges();
+
+        }
+        
+    }
 }

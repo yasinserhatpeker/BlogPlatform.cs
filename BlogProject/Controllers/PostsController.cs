@@ -143,7 +143,7 @@ namespace BlogProject.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult Edit(PostCreateViewModel model)
+        public IActionResult Edit(PostCreateViewModel model, int[] tagIds)
         {
             if (ModelState.IsValid)
             {
@@ -161,7 +161,7 @@ namespace BlogProject.Controllers
                 {
                     entityToUpdate.isActive = model.isActive;
                 }
-                _postRepository.EditPost(entityToUpdate);
+                _postRepository.EditPost(entityToUpdate,tagIds);
 
                 return RedirectToAction("List", "Posts");
 
