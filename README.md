@@ -1,4 +1,4 @@
-# BlogPlatform.cs
+# Blog Platform Project
 
 A modern blog platform built with .NET Entity Framework Core and MySQL, designed for publishing content about News, Politics, Sports, and various other topics.
 
